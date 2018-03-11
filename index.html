@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>JavaScript Stardate</title>
+<script>
+function start() {
+  setInterval("stardate()", 1000);
+}
+function stardate() {
+  var now            = new Date(),
+      epoch          = new Date("2000-01-01T00:00:00"),
+      daysSinceEpoch = (now - epoch) / 8.64e7,
+      stardate       = daysSinceEpoch / 36525 * 1e5;
+  document.getElementById("stardate").innerHTML = "Stardate " + stardate.toFixed(1);
+}
+</script>
+<style>
+#stardate { font-size: xx-large; }
+</style>
+<body onload="start()">
+<div id="stardate"></div>
+</body>
